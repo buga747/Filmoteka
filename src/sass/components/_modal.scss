@@ -1,0 +1,37 @@
+.modal {
+
+    width: calc(100% - 40px);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 95vh;
+
+    z-index: 5000;
+    /* Должен быть выше чем у подложки*/
+
+    /*  Побочные стили   */
+    box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
+    text-align: center;
+    padding: 48px 20px 40px 20px;
+    background-color: $light-color;
+    border: 2px solid $accent-color;
+    border-radius: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    @media screen and(max-width:767px) {
+        max-width: 450px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 704px;
+        padding: 40px 72px 40px 36px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 806px;
+        padding: 40px 12px;
+    }
+}
