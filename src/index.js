@@ -1,7 +1,11 @@
 import './sass/index.scss';
-import './js/api';
+import './js/fetchApi';
 import './js/genres-info';
-import './js/input-list';
-import './js/search-input';
+import './js/firstLoadGalleryMarkup';
+import './js/galleryFilmsMarkup';
+import './js/input-film-search';
+import './js/submit-film-search';
 import './js/movie-render';
 import './js/renderMovieCard';
+import './js/loader';
+import './js/getGenreNames';

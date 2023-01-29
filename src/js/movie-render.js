@@ -1,4 +1,4 @@
-import { getFilmDetails } from './api';
+import { getFilmDetails } from './fetchApi';
 import { renderMovieCard } from './renderMovieCard';
 
 const container = document.querySelector('.movie-card');
