@@ -27,3 +27,34 @@
         @content;
     }
 }
+
+@mixin miniMobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin pc {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin font-box($fw, $fs, $lh, $ls: 0.04em) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $lh;
+    letter-spacing: $ls;
+}

@@ -2,6 +2,7 @@ import { renderMoviesOnInput } from './input-list-markup';
 import { getFilmsByName } from './fetchApi';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { activateMovieModal } from './renderMovieCard';
 
 const searchFormInputEl = document.querySelector('#searchQuery');
 const inputContainer = document.querySelector('#search-list');
@@ -30,6 +31,19 @@ function onInputSearch(evt) {
         inputContainer.innerHTML = '';
       } else {
         renderMoviesOnInput(results);
+        activateMovieModal();
+        //  pagination.reset(data.totalHits);
+        //  pagination.on('beforeMove', e => {
+        //    page = e.page;
+        //    fetchPixabayAPI(query, page, perPage).then(({ data }) => {
+        //      renderGallery(data.hits);
+        //      onSimplelightboxAdd();
+        //      window.scrollTo({
+        //        behavior: 'smooth',
+        //        top: 0,
+        //      });
+        //    });
+        //  });
       }
     })
     .catch(err => console.log(err));
