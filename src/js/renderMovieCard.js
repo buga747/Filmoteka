@@ -53,6 +53,7 @@ function renderFilmModal(data) {
     overview,
     id,
     genres,
+    release_date,
   } = data;
   const backdrop = document.querySelector('.backdrop');
 
