@@ -8,7 +8,7 @@ export function renderFilmsGallery(arr) {
 
   const markup = arr
     .map(({ poster_path, title, genre_ids: genreIds, id }) => {
-      return `<div class="film-wrapper" data-id='${id}'>
+      return `<div class="film-wrapper movie__item" data-id='${id}'>
                 <img class="film-img" 
                 src="${poster_path ? POSTER_URL + poster_path : ComingSoonImg}" 
                 alt="Movie ${title ? title : 'Unknown title'} poster>

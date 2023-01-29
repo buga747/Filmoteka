@@ -1,5 +1,3 @@
-import { genresInfo } from './genres-info';
-
 export function getGenresNames(genreIds, genresInfo) {
   let genresNamesArray = [];
 
@@ -16,4 +14,16 @@ export function getGenresNames(genreIds, genresInfo) {
   }
 
   return genresNamesArray.join(', ');
+}
+
+export function getGenre(arr) {
+  const genre = arr
+    .map(genre => genre.name)
+    .join(', ')
+    .split(',');
+  if (genre.length > 3) {
+    return `${genre.slice(0, 1)}, Other`;
+  } else {
+    return genre;
+  }
 }

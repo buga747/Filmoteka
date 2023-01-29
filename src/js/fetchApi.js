@@ -15,7 +15,7 @@ export async function getFilmsByName(query = [], page = 1) {
 }
 
 // fetching film by ID
-export async function getFilmDetails(id) {
+export async function getFilmById(id) {
   try {
     const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}`;
     const response = await axios.get(url);
