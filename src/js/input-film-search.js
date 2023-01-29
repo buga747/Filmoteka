@@ -1,5 +1,5 @@
-import { renderMoviesOnInput } from './input-list';
-import { getFilmsByName } from './api';
+import { renderMoviesOnInput } from './input-list-markup';
+import { getFilmsByName } from './fetchApi';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -14,8 +14,6 @@ searchFormInputEl.addEventListener(
 
 function onInputSearch(evt) {
   const queryValue = evt.target.value;
-
-  console.log(queryValue);
   inputContainer.innerHTML = '';
 
   if (queryValue === '') {
@@ -25,15 +23,14 @@ function onInputSearch(evt) {
 
   getFilmsByName(queryValue)
     .then(({ results, total_results }) => {
-      console.log(results);
       if (total_results === 0 && queryValue !== 0) {
         Notify.failure('Sorry, film is not found');
       }
-      if (results.length > 0) {
-        renderMoviesOnInput(results);
-      } else {
+      if (results === undefined || results.length === 0) {
         inputContainer.innerHTML = '';
+      } else {
+        renderMoviesOnInput(results);
       }
     })
-    .catch();
+    .catch(err => console.log(err));
 }

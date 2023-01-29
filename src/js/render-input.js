@@ -1,5 +1,5 @@
 // import { moviesApiService } from './render_popular';
-import { renderMoviesOnInput } from './input-list';
+import { renderMoviesOnInput } from './input-list-markup';
 // import { renderModal } from './modal_details';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
