@@ -73,8 +73,36 @@
     }
 }
 
+.movie_rate {
+    display: inline-flex;
+    margin-left: 5px;
+    width: 36px;
+    height: 16px;
+    background-color: #FF6B01;
+    border-radius: 5px;
+
+
+    font-size: 12px;
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+
+    @media screen and(min-width: 768px) {
+        width: 40px;
+        height: 20px;
+    }
+}
+
 .film-genres {
     color: $accent-color;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
 
     @media screen and (min-width: 1280px) {
         font-size: 20px;
