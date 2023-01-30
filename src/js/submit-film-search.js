@@ -5,7 +5,6 @@ import { getFilmsByName } from './fetchApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Pagination from 'tui-pagination';
 const paginationContainer = document.querySelector('.tui-pagination');
-const perPage = 20;
 let page = 1;
 
 const searchForm = document.querySelector('.js-search');
@@ -36,8 +35,8 @@ function onSubmitSearch(evt) {
       renderFilmsGallery(data.results);
       activateMovieModal();
       const pagination = new Pagination(paginationContainer, {
-        totalItems: `${data.total_results}`,
-        itemsPerPage: `${perPage}`,
+        // totalItems: `${data.total_results}`,
+        // itemsPerPage: `${perPage}`,
         visiblePages: 5,
         centerAlign: true,
       });
@@ -45,12 +44,12 @@ function onSubmitSearch(evt) {
       pagination.reset(data.total_results);
       pagination.on('beforeMove', e => {
         page = e.page;
-        getFilmsByName(queryValue).then(data => {
+        getFilmsByName(queryValue, page).then(data => {
           if (!data.results) {
             return;
           }
           onPageLoad();
-          renderFilmsGallery(data.results);
+          renderFilmsGallery(data.results, page);
           activateMovieModal();
           window.scrollTo({
             behavior: 'smooth',
@@ -61,4 +60,21 @@ function onSubmitSearch(evt) {
     })
     .catch(err => console.log(err))
     .finally(searchForm.reset());
+}
+
+function addPaginationRenderingMoviesBySubmit(evt, queryValue, page) {
+  page = evt.page;
+  queryValue;
+  getFilmsByName(queryValue, page).then(data => {
+    if (!data.results) {
+      return;
+    }
+    onPageLoad();
+    renderFilmsGallery(data.results);
+    activateMovieModal();
+    window.scrollTo({
+      behavior: 'smooth',
+      top: 0,
+    });
+  });
 }
